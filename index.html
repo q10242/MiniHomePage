@@ -2,17 +2,236 @@
 <html lang="zh-Hant">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Otus 網域首頁</title>
   <meta name="description" content="此為 Otus 網域首頁，目前提供 legal-letter 存證信函工具服務。">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --primary: #3498db;
+      --secondary: #2980b9;
+      --dark: #2c3e50;
+      --light: #ecf0f1;
+      --accent: #e74c3c;
+    }
+    
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+    
+    body {
+      font-family: 'Noto Sans TC', sans-serif;
+      line-height: 1.6;
+      color: var(--dark);
+      background-color: var(--light);
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
+    
+    header {
+      background-color: var(--primary);
+      color: white;
+      padding: 1.5rem 0;
+      text-align: center;
+      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+    
+    .logo {
+      font-size: 2.5rem;
+      font-weight: 700;
+      letter-spacing: 1px;
+      margin-bottom: 0.5rem;
+    }
+    
+    .tagline {
+      font-size: 1rem;
+      opacity: 0.9;
+    }
+    
+    main {
+      max-width: 1100px;
+      width: 90%;
+      margin: 3rem auto;
+      padding: 2rem;
+      background: white;
+      border-radius: 10px;
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
+      flex: 1;
+    }
+    
+    h2 {
+      font-size: 1.8rem;
+      color: var(--primary);
+      margin-bottom: 1.5rem;
+      position: relative;
+      padding-bottom: 0.5rem;
+    }
+    
+    h2::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      width: 60px;
+      height: 4px;
+      background-color: var(--primary);
+      border-radius: 2px;
+    }
+    
+    .service-description {
+      margin-bottom: 2rem;
+      font-size: 1.1rem;
+    }
+    
+    .services-container {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+      gap: 2rem;
+      margin-top: 2rem;
+    }
+    
+    .service-card {
+      border: 1px solid rgba(0, 0, 0, 0.08);
+      border-radius: 8px;
+      overflow: hidden;
+      transition: transform 0.3s, box-shadow 0.3s;
+    }
+    
+    .service-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+    }
+    
+    .service-card img {
+      width: 100%;
+      height: 160px;
+      object-fit: cover;
+      background-color: #f7f9fc;
+    }
+    
+    .card-content {
+      padding: 1.5rem;
+    }
+    
+    .card-title {
+      font-size: 1.3rem;
+      margin-bottom: 0.75rem;
+      color: var(--dark);
+    }
+    
+    .card-description {
+      color: #666;
+      margin-bottom: 1.5rem;
+      font-size: 0.95rem;
+    }
+    
+    .card-link {
+      display: inline-block;
+      background-color: var(--primary);
+      color: white;
+      padding: 0.6rem 1.2rem;
+      border-radius: 6px;
+      text-decoration: none;
+      font-weight: 500;
+      transition: background-color 0.3s;
+    }
+    
+    .card-link:hover {
+      background-color: var(--secondary);
+    }
+    
+    .coming-soon {
+      margin-top: 3rem;
+      padding-top: 2rem;
+      border-top: 1px solid #eee;
+      text-align: center;
+    }
+    
+    .coming-soon h3 {
+      font-size: 1.5rem;
+      color: var(--dark);
+      margin-bottom: 1rem;
+    }
+    
+    .coming-soon p {
+      color: #666;
+      max-width: 600px;
+      margin: 0 auto;
+    }
+    
+    footer {
+      background-color: var(--dark);
+      color: white;
+      text-align: center;
+      padding: 2rem 0;
+      margin-top: auto;
+    }
+    
+    .footer-content {
+      max-width: 1100px;
+      margin: 0 auto;
+      width: 90%;
+    }
+    
+    .copyright {
+      margin-top: 1rem;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    
+    @media (max-width: 768px) {
+      .logo {
+        font-size: 2rem;
+      }
+      
+      main {
+        padding: 1.5rem;
+        margin: 2rem auto;
+      }
+      
+      .services-container {
+        grid-template-columns: 1fr;
+      }
+    }
+  </style>
 </head>
-<script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4397281842502641"
-     crossorigin="anonymous"></script>
 <body>
-  <h1>歡迎來到 Otus</h1>
-  <p>目前本站提供以下服務：</p>
-  <ul>
-    <li><a href="https://legal-letter.otus.tw/">Legal Letter 存證信函產生器</a></li>
-  </ul>
-  <p>更多服務開發中，敬請期待。</p>
+  <header>
+    <div class="logo">Otus</div>
+    <div class="tagline">智慧工具，簡化生活</div>
+  </header>
+  
+  <main>
+    <h2>我們的服務</h2>
+    <p class="service-description">我們致力於開發簡單易用、高效能的工具，幫助您解決日常問題。</p>
+    
+    <div class="services-container">
+      <div class="service-card">
+        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24'%3E%3Cpath fill='%233498db' d='M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z'/%3E%3C/svg%3E" alt="法律文件圖示">
+        <div class="card-content">
+          <h3 class="card-title">Legal Letter 存證信函產生器</h3>
+          <p class="card-description">簡單幾步，快速生成專業的法律存證信函，確保您的權益得到最好的保障。</p>
+          <a href="https://legal-letter.otus.tw/" class="card-link">立即使用</a>
+        </div>
+      </div>
+    </div>
+    
+    <div class="coming-soon">
+      <h3>更多服務即將推出</h3>
+      <p>我們的團隊正在開發更多實用工具，敬請期待。若您有任何建議或合作想法，歡迎與我們聯繫。</p>
+    </div>
+  </main>
+  
+  <footer>
+    <div class="footer-content">
+      <p>Otus — 為您打造智慧便捷的數位體驗</p>
+      <p class="copyright">&copy; 2025 Otus. All rights reserved.</p>
+    </div>
+  </footer>
 </body>
 </html>
