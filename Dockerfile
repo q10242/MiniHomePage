@@ -4,6 +4,10 @@ FROM alpine:latest
 # 安裝 nginx
 RUN apk add --no-cache nginx
 
+# 創建自定義 nginx 配置
+RUN mkdir -p /run/nginx
+COPY nginx.conf /etc/nginx/http.d/default.conf
+
 # 將本機的 index.html 檔案複製到 nginx 的 default website 目錄
 COPY index.html /usr/share/nginx/html/index.html
 
