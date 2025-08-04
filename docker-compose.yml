@@ -1,0 +1,18 @@
+version: '3.8'
+
+services:
+  app:
+    build: .
+    container_name: otus-home
+    environment:
+      - VIRTUAL_HOST=otus.tw
+      - VIRTUAL_NETWORK=self-nginx-proxy
+      - VIRTUAL_PORT=8080
+      - LETSENCRYPT_HOST=otus.tw
+      - LETSENCRYPT_EMAIL=kyjita@gmail.com
+    networks:
+      - proxy
+    restart: always
+  proxy:
+    external:
+      name: self-nginx-proxy
