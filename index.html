@@ -3,236 +3,897 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Otus 網域首頁</title>
-  <meta name="description" content="此為 Otus 網域首頁，目前提供 legal-letter 存證信函工具服務。">
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700&display=swap" rel="stylesheet">
-  <script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-4397281842502641"
-     crossorigin="anonymous"></script>
+  <title>Otus｜把複雜流程做成可信任的數位工具</title>
+  <meta name="description" content="Otus 開發面向公共討論與日常權益的數位工具，包含 TruthShield 真相護盾與 Legal Letter 存證信函產生器。">
+  <meta name="theme-color" content="#103f3a">
+  <meta property="og:title" content="Otus｜可信任的數位工具">
+  <meta property="og:description" content="認識 TruthShield 真相護盾與 Legal Letter 存證信函產生器。">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://otus.tw/">
+  <link rel="canonical" href="https://otus.tw/">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' rx='14' fill='%23103f3a'/%3E%3Cpath d='M32 13l17 9v14c0 10-7 16-17 19-10-3-17-9-17-19V22l17-9z' fill='none' stroke='white' stroke-width='5'/%3E%3Cpath d='M23 33l6 6 13-14' fill='none' stroke='white' stroke-width='5' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
   <style>
     :root {
-      --primary: #3498db;
-      --secondary: #2980b9;
-      --dark: #2c3e50;
-      --light: #ecf0f1;
-      --accent: #e74c3c;
+      --ink: #182826;
+      --muted: #61706d;
+      --line: #dfe8e5;
+      --paper: #fbfaf6;
+      --white: #ffffff;
+      --forest: #103f3a;
+      --teal: #0f766e;
+      --cyan: #22d3ee;
+      --gold: #f2bd55;
+      --rose: #d95d68;
+      --shadow: 0 22px 55px rgba(16, 63, 58, 0.14);
     }
-    
+
     * {
-      margin: 0;
-      padding: 0;
       box-sizing: border-box;
     }
-    
+
+    html {
+      scroll-behavior: smooth;
+    }
+
     body {
-      font-family: 'Noto Sans TC', sans-serif;
-      line-height: 1.6;
-      color: var(--dark);
-      background-color: var(--light);
+      margin: 0;
+      color: var(--ink);
+      background: var(--paper);
+      font-family: ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans TC", "PingFang TC", "Microsoft JhengHei", sans-serif;
+      line-height: 1.7;
+      overflow-x: hidden;
+    }
+
+    a {
+      color: inherit;
+    }
+
+    .site-header {
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      border-bottom: 1px solid rgba(223, 232, 229, 0.86);
+      background: rgba(251, 250, 246, 0.92);
+      backdrop-filter: blur(16px);
+    }
+
+    .nav {
+      width: min(1120px, calc(100% - 40px));
+      min-height: 72px;
+      margin: 0 auto;
       display: flex;
-      flex-direction: column;
-      min-height: 100vh;
+      align-items: center;
+      justify-content: space-between;
+      gap: 24px;
     }
-    
-    header {
-      background-color: var(--primary);
-      color: white;
-      padding: 1.5rem 0;
-      text-align: center;
-      box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+
+    .brand {
+      display: inline-flex;
+      align-items: center;
+      gap: 10px;
+      text-decoration: none;
+      font-weight: 800;
+      letter-spacing: 0.02em;
     }
-    
-    .logo {
-      font-size: 2.5rem;
-      font-weight: 700;
-      letter-spacing: 1px;
-      margin-bottom: 0.5rem;
-    }
-    
-    .tagline {
-      font-size: 1rem;
-      opacity: 0.9;
-    }
-    
-    main {
-      max-width: 1100px;
-      width: 90%;
-      margin: 3rem auto;
-      padding: 2rem;
-      background: white;
-      border-radius: 10px;
-      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.08);
-      flex: 1;
-    }
-    
-    h2 {
-      font-size: 1.8rem;
-      color: var(--primary);
-      margin-bottom: 1.5rem;
-      position: relative;
-      padding-bottom: 0.5rem;
-    }
-    
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      width: 60px;
-      height: 4px;
-      background-color: var(--primary);
-      border-radius: 2px;
-    }
-    
-    .service-description {
-      margin-bottom: 2rem;
-      font-size: 1.1rem;
-    }
-    
-    .services-container {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-      gap: 2rem;
-      margin-top: 2rem;
-    }
-    
-    .service-card {
-      border: 1px solid rgba(0, 0, 0, 0.08);
+
+    .brand-mark {
+      width: 34px;
+      height: 34px;
       border-radius: 8px;
-      overflow: hidden;
-      transition: transform 0.3s, box-shadow 0.3s;
+      display: grid;
+      place-items: center;
+      color: var(--white);
+      background: var(--forest);
+      box-shadow: inset 0 0 0 2px rgba(255, 255, 255, 0.12);
     }
-    
-    .service-card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 15px 30px rgba(0, 0, 0, 0.1);
+
+    .brand-mark svg {
+      width: 20px;
+      height: 20px;
     }
-    
-    .service-card img {
-      width: 100%;
-      height: 160px;
-      object-fit: cover;
-      background-color: #f7f9fc;
-    }
-    
-    .card-content {
-      padding: 1.5rem;
-    }
-    
-    .card-title {
-      font-size: 1.3rem;
-      margin-bottom: 0.75rem;
-      color: var(--dark);
-    }
-    
-    .card-description {
-      color: #666;
-      margin-bottom: 1.5rem;
+
+    .nav-links {
+      display: flex;
+      align-items: center;
+      gap: 6px;
       font-size: 0.95rem;
     }
-    
-    .card-link {
-      display: inline-block;
-      background-color: var(--primary);
-      color: white;
-      padding: 0.6rem 1.2rem;
-      border-radius: 6px;
+
+    .nav-links a {
+      min-height: 40px;
+      padding: 8px 12px;
+      border-radius: 8px;
+      color: var(--muted);
       text-decoration: none;
-      font-weight: 500;
-      transition: background-color 0.3s;
+      font-weight: 700;
     }
-    
-    .card-link:hover {
-      background-color: var(--secondary);
+
+    .nav-links a:hover,
+    .nav-links a:focus-visible {
+      color: var(--forest);
+      background: rgba(15, 118, 110, 0.08);
+      outline: none;
     }
-    
-    .coming-soon {
-      margin-top: 3rem;
-      padding-top: 2rem;
-      border-top: 1px solid #eee;
-      text-align: center;
+
+    main {
+      overflow: hidden;
     }
-    
-    .coming-soon h3 {
-      font-size: 1.5rem;
-      color: var(--dark);
-      margin-bottom: 1rem;
-    }
-    
-    .coming-soon p {
-      color: #666;
-      max-width: 600px;
+
+    .section {
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
+      padding: 72px 0;
     }
-    
-    footer {
-      background-color: var(--dark);
-      color: white;
-      text-align: center;
-      padding: 2rem 0;
+
+    .hero {
+      display: grid;
+      grid-template-columns: minmax(0, 1.02fr) minmax(360px, 0.98fr);
+      align-items: center;
+      gap: 48px;
+      padding-top: 88px;
+      padding-bottom: 76px;
+    }
+
+    .eyebrow {
+      width: fit-content;
+      margin: 0 0 18px;
+      padding: 5px 10px;
+      border: 1px solid rgba(15, 118, 110, 0.22);
+      border-radius: 999px;
+      color: var(--teal);
+      background: rgba(15, 118, 110, 0.08);
+      font-size: 0.86rem;
+      font-weight: 800;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      max-width: 760px;
+      margin-bottom: 22px;
+      font-size: clamp(2.55rem, 5.6vw, 4.55rem);
+      line-height: 1.08;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .lead {
+      max-width: 680px;
+      margin-bottom: 30px;
+      color: #40514e;
+      font-size: 1.16rem;
+    }
+
+    .hero-actions,
+    .card-actions {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+
+    .button {
+      min-height: 46px;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      padding: 10px 16px;
+      border: 1px solid transparent;
+      border-radius: 8px;
+      text-decoration: none;
+      font-weight: 800;
+      line-height: 1.2;
+      transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
+    }
+
+    .button:hover,
+    .button:focus-visible {
+      transform: translateY(-1px);
+      outline: none;
+    }
+
+    .button.primary {
+      color: var(--white);
+      background: var(--forest);
+    }
+
+    .button.secondary {
+      color: var(--forest);
+      border-color: rgba(16, 63, 58, 0.24);
+      background: var(--white);
+    }
+
+    .button svg {
+      width: 18px;
+      height: 18px;
+      flex: 0 0 auto;
+    }
+
+    .hero-visual {
+      position: relative;
+      width: 100%;
+      max-width: 100%;
+      min-width: 0;
+      min-height: 520px;
+      border-radius: 8px;
+      color: var(--white);
+      background: #0b1617;
+      box-shadow: var(--shadow);
+      overflow: hidden;
+    }
+
+    .product-window {
+      position: absolute;
+      inset: 28px 28px auto;
+      min-height: 305px;
+      border: 1px solid rgba(255, 255, 255, 0.12);
+      border-radius: 8px;
+      background: #101b1d;
+      box-shadow: 0 18px 45px rgba(0, 0, 0, 0.3);
+      overflow: hidden;
+    }
+
+    .window-bar {
+      height: 42px;
+      display: flex;
+      align-items: center;
+      gap: 7px;
+      padding: 0 16px;
+      border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+      background: #132224;
+    }
+
+    .dot {
+      width: 10px;
+      height: 10px;
+      border-radius: 50%;
+    }
+
+    .dot.red {
+      background: var(--rose);
+    }
+
+    .dot.gold {
+      background: var(--gold);
+    }
+
+    .dot.cyan {
+      background: var(--cyan);
+    }
+
+    .window-body {
+      padding: 24px;
+    }
+
+    .news-line,
+    .doc-line {
+      height: 12px;
+      margin-bottom: 13px;
+      border-radius: 999px;
+      background: rgba(255, 255, 255, 0.2);
+    }
+
+    .news-line.short {
+      width: 52%;
+    }
+
+    .news-line.medium {
+      width: 72%;
+    }
+
+    .news-line.long {
+      width: 86%;
+    }
+
+    .shield-card {
+      margin-top: 24px;
+      padding: 16px;
+      border: 1px solid rgba(34, 211, 238, 0.32);
+      border-radius: 8px;
+      background: rgba(34, 211, 238, 0.08);
+    }
+
+    .shield-card strong {
+      display: block;
+      margin-bottom: 8px;
+      color: var(--cyan);
+    }
+
+    .signal-row {
+      display: grid;
+      grid-template-columns: 1fr 1fr 1fr;
+      gap: 8px;
+      margin-top: 14px;
+    }
+
+    .signal {
+      min-height: 54px;
+      padding: 9px;
+      border-radius: 8px;
+      background: rgba(255, 255, 255, 0.08);
+      font-size: 0.76rem;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .document-sheet {
+      position: absolute;
+      right: 34px;
+      bottom: 34px;
+      width: min(320px, 68%);
+      padding: 26px 24px;
+      border-radius: 8px;
+      color: var(--ink);
+      background: var(--white);
+      box-shadow: 0 16px 38px rgba(0, 0, 0, 0.22);
+    }
+
+    .sheet-title {
+      margin-bottom: 18px;
+      color: var(--forest);
+      font-weight: 900;
+    }
+
+    .doc-line {
+      background: #dce6e2;
+    }
+
+    .stamp {
+      position: absolute;
+      right: 22px;
+      bottom: 18px;
+      padding: 7px 10px;
+      border: 2px solid var(--rose);
+      border-radius: 8px;
+      color: var(--rose);
+      font-size: 0.82rem;
+      font-weight: 900;
+      transform: rotate(-7deg);
+    }
+
+    .section-heading {
+      max-width: 720px;
+      margin-bottom: 34px;
+    }
+
+    .section-heading h2 {
+      margin-bottom: 12px;
+      font-size: clamp(2rem, 4vw, 3rem);
+      line-height: 1.18;
+      letter-spacing: 0;
+      overflow-wrap: anywhere;
+    }
+
+    .section-heading p {
+      color: var(--muted);
+      font-size: 1.06rem;
+    }
+
+    .product-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 22px;
+    }
+
+    .product-card {
+      display: flex;
+      flex-direction: column;
+      min-height: 520px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: var(--white);
+      box-shadow: 0 14px 35px rgba(16, 63, 58, 0.08);
+      overflow: hidden;
+    }
+
+    .product-art {
+      min-height: 190px;
+      padding: 22px;
+      display: grid;
+      place-items: center;
+    }
+
+    .product-art.dark {
+      background: #0b1617;
+    }
+
+    .product-art.light {
+      background: #efe9dd;
+    }
+
+    .mini-browser,
+    .mini-letter {
+      width: 100%;
+      max-width: 410px;
+      border-radius: 8px;
+    }
+
+    .mini-browser {
+      padding: 16px;
+      color: var(--white);
+      border: 1px solid rgba(255, 255, 255, 0.14);
+      background: #111f22;
+    }
+
+    .mini-browser .news-line {
+      height: 10px;
+      margin-bottom: 11px;
+    }
+
+    .mini-tag {
+      display: inline-flex;
+      margin-top: 8px;
+      padding: 6px 9px;
+      border-radius: 8px;
+      color: #061112;
+      background: var(--cyan);
+      font-size: 0.78rem;
+      font-weight: 900;
+    }
+
+    .mini-letter {
+      position: relative;
+      min-height: 152px;
+      padding: 20px;
+      background: var(--white);
+      box-shadow: 0 12px 24px rgba(16, 63, 58, 0.12);
+    }
+
+    .mini-letter::before {
+      content: "";
+      position: absolute;
+      left: 20px;
+      right: 20px;
+      top: 50px;
+      height: 1px;
+      background: var(--line);
+    }
+
+    .product-content {
+      display: flex;
+      flex: 1;
+      flex-direction: column;
+      padding: 28px;
+    }
+
+    .product-label {
+      color: var(--teal);
+      font-size: 0.83rem;
+      font-weight: 900;
+    }
+
+    .product-content h3 {
+      margin: 8px 0 12px;
+      font-size: 1.65rem;
+      line-height: 1.22;
+      letter-spacing: 0;
+    }
+
+    .product-content p {
+      color: var(--muted);
+    }
+
+    .feature-list {
+      margin: 6px 0 26px;
+      padding: 0;
+      list-style: none;
+    }
+
+    .feature-list li {
+      display: flex;
+      gap: 10px;
+      margin-bottom: 10px;
+      color: #40514e;
+    }
+
+    .feature-list li::before {
+      content: "";
+      flex: 0 0 auto;
+      width: 9px;
+      height: 9px;
+      margin-top: 10px;
+      border-radius: 50%;
+      background: var(--gold);
+    }
+
+    .product-content .card-actions {
       margin-top: auto;
     }
-    
-    .footer-content {
-      max-width: 1100px;
+
+    .principles {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 18px;
+    }
+
+    .principle {
+      padding: 24px;
+      border-top: 3px solid var(--teal);
+      background: var(--white);
+    }
+
+    .principle h3 {
+      margin-bottom: 8px;
+      font-size: 1.18rem;
+    }
+
+    .principle p {
+      margin-bottom: 0;
+      color: var(--muted);
+    }
+
+    .contact-band {
+      display: grid;
+      grid-template-columns: 1fr auto;
+      align-items: center;
+      gap: 24px;
+      padding: 34px;
+      border-radius: 8px;
+      color: var(--white);
+      background: var(--forest);
+    }
+
+    .contact-band h2 {
+      margin-bottom: 8px;
+      font-size: clamp(1.8rem, 3.5vw, 2.6rem);
+      letter-spacing: 0;
+    }
+
+    .contact-band p {
+      max-width: 720px;
+      margin-bottom: 0;
+      color: rgba(255, 255, 255, 0.78);
+    }
+
+    .contact-band .button {
+      color: var(--forest);
+      background: var(--gold);
+      white-space: nowrap;
+    }
+
+    footer {
+      border-top: 1px solid var(--line);
+      background: var(--white);
+    }
+
+    .footer-inner {
+      width: min(1120px, calc(100% - 40px));
       margin: 0 auto;
-      width: 90%;
+      padding: 28px 0;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 18px;
+      color: var(--muted);
+      font-size: 0.93rem;
     }
-    
-    .copyright {
-      margin-top: 1rem;
-      font-size: 0.9rem;
-      opacity: 0.8;
+
+    .footer-links {
+      display: flex;
+      gap: 14px;
     }
-    
-    @media (max-width: 768px) {
-      .logo {
-        font-size: 2rem;
+
+    .footer-links a {
+      text-decoration: none;
+      font-weight: 700;
+    }
+
+    .footer-links a:hover,
+    .footer-links a:focus-visible {
+      color: var(--forest);
+      outline: none;
+    }
+
+    @media (max-width: 900px) {
+      .nav {
+        min-height: auto;
+        padding: 16px 0;
+        align-items: flex-start;
+        flex-direction: column;
       }
-      
-      main {
-        padding: 1.5rem;
-        margin: 2rem auto;
+
+      .nav-links {
+        width: 100%;
+        overflow-x: auto;
+        padding-bottom: 2px;
       }
-      
-      .services-container {
+
+      .hero,
+      .product-grid,
+      .principles,
+      .contact-band {
         grid-template-columns: 1fr;
+      }
+
+      .hero {
+        padding-top: 48px;
+        padding-bottom: 54px;
+      }
+
+      .hero-visual {
+        min-height: 470px;
+      }
+
+      .contact-band {
+        align-items: start;
+      }
+
+      .contact-band .button {
+        width: fit-content;
+      }
+    }
+
+    @media (max-width: 560px) {
+      .section,
+      .nav,
+      .footer-inner {
+        width: min(100% - 28px, 1120px);
+      }
+
+      .section {
+        padding: 52px 0;
+      }
+
+      .hero {
+        padding-top: 36px;
+      }
+
+      .hero > * {
+        min-width: 0;
+      }
+
+      h1 {
+        font-size: 2.35rem;
+        line-height: 1.18;
+        word-break: break-all;
+      }
+
+      .lead,
+      .section-heading p,
+      .product-content p,
+      .feature-list li,
+      .principle p,
+      .contact-band p {
+        word-break: break-all;
+      }
+
+      .hero-actions .button,
+      .card-actions .button {
+        width: 100%;
+      }
+
+      .hero-visual {
+        min-height: 430px;
+      }
+
+      .product-window {
+        inset: 16px 16px auto;
+      }
+
+      .window-body,
+      .product-content {
+        padding: 20px;
+      }
+
+      .document-sheet {
+        right: 16px;
+        bottom: 18px;
+        width: calc(100% - 52px);
+      }
+
+      .signal-row {
+        grid-template-columns: 1fr;
+      }
+
+      .product-card {
+        min-height: auto;
+      }
+
+      .contact-band {
+        padding: 24px;
+      }
+
+      .footer-inner {
+        align-items: flex-start;
+        flex-direction: column;
       }
     }
   </style>
+  <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Organization",
+      "name": "Otus",
+      "url": "https://otus.tw/",
+      "email": "kyjita@gmail.com",
+      "sameAs": [
+        "https://truth-shield.otus.tw/",
+        "https://legal-letter.otus.tw/"
+      ]
+    }
+  </script>
 </head>
 <body>
-  <header>
-    <div class="logo">Otus</div>
-    <div class="tagline">智慧工具，簡化生活</div>
+  <header class="site-header">
+    <nav class="nav" aria-label="主要導覽">
+      <a class="brand" href="/" aria-label="Otus 首頁">
+        <span class="brand-mark" aria-hidden="true">
+          <svg viewBox="0 0 24 24" fill="none">
+            <path d="M12 3l7 4v6c0 4.2-2.8 6.6-7 8-4.2-1.4-7-3.8-7-8V7l7-4z" stroke="currentColor" stroke-width="2" />
+            <path d="M8.5 12.2l2.2 2.2 4.8-5" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+          </svg>
+        </span>
+        <span>Otus</span>
+      </a>
+      <div class="nav-links">
+        <a href="#products">產品</a>
+        <a href="#principles">原則</a>
+        <a href="#contact">聯絡</a>
+        <a href="https://truth-shield.otus.tw/">TruthShield</a>
+        <a href="https://legal-letter.otus.tw/">Legal Letter</a>
+      </div>
+    </nav>
   </header>
-  
+
   <main>
-    <h2>我們的服務</h2>
-    <p class="service-description">我們致力於開發簡單易用、高效能的工具，幫助您解決日常問題。</p>
-    
-    <div class="services-container">
-      <div class="service-card">
-        <img src="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='100' height='100' viewBox='0 0 24 24'%3E%3Cpath fill='%233498db' d='M14 2H6c-1.1 0-2 .9-2 2v16c0 1.1.9 2 2 2h12c1.1 0 2-.9 2-2V8l-6-6zM6 20V4h7v5h5v11H6z'/%3E%3C/svg%3E" alt="法律文件圖示">
-        <div class="card-content">
-          <h3 class="card-title">Legal Letter 存證信函產生器</h3>
-          <p class="card-description">簡單幾步，快速生成專業的法律存證信函，確保您的權益得到最好的保障。</p>
-          <a href="https://legal-letter.otus.tw/" class="card-link">立即使用</a>
+    <section class="section hero" aria-labelledby="hero-title">
+      <div>
+        <p class="eyebrow">Otus builds public-interest tools</p>
+        <h1 id="hero-title">把複雜流程，做成可信任的數位工具。</h1>
+        <p class="lead">我們專注在公共討論、事實查證與日常權益保護，把原本分散、難懂、需要耐心的流程，整理成任何人都能開始使用的產品。</p>
+        <div class="hero-actions">
+          <a class="button primary" href="#products">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M5 12h14M13 6l6 6-6 6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            看目前產品
+          </a>
+          <a class="button secondary" href="mailto:kyjita@gmail.com">
+            <svg viewBox="0 0 24 24" fill="none" aria-hidden="true">
+              <path d="M4 6h16v12H4z" stroke="currentColor" stroke-width="2" />
+              <path d="M4 7l8 6 8-6" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" />
+            </svg>
+            聯絡我們
+          </a>
         </div>
       </div>
-    </div>
-    
-    <div class="coming-soon">
-      <h3>更多服務即將推出</h3>
-      <p>我們的團隊正在開發更多實用工具，敬請期待。若您有任何建議或合作想法，歡迎與我們聯繫。</p>
-    </div>
+
+      <div class="hero-visual" aria-label="Otus 產品示意">
+        <div class="product-window">
+          <div class="window-bar">
+            <span class="dot red"></span>
+            <span class="dot gold"></span>
+            <span class="dot cyan"></span>
+          </div>
+          <div class="window-body">
+            <div class="news-line long"></div>
+            <div class="news-line medium"></div>
+            <div class="news-line short"></div>
+            <div class="shield-card">
+              <strong>TruthShield：社群查證訊號</strong>
+              <span>標題、脈絡、證據與信用權重一起呈現。</span>
+              <div class="signal-row">
+                <div class="signal">72h<br>查證期</div>
+                <div class="signal">1 人<br>1 筆紀錄</div>
+                <div class="signal">公開<br>可稽核</div>
+              </div>
+            </div>
+          </div>
+        </div>
+        <div class="document-sheet">
+          <div class="sheet-title">Legal Letter</div>
+          <div class="doc-line" style="width: 92%"></div>
+          <div class="doc-line" style="width: 78%"></div>
+          <div class="doc-line" style="width: 86%"></div>
+          <div class="doc-line" style="width: 62%"></div>
+          <span class="stamp">PDF Ready</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="products" class="section" aria-labelledby="products-title">
+      <div class="section-heading">
+        <p class="eyebrow">Products</p>
+        <h2 id="products-title">從閱讀新聞到整理權益文件，先讓使用者做得到。</h2>
+        <p>Otus 目前有兩個公開產品：一個處理資訊可信度，一個協助使用者整理正式文件。共同點是降低起步成本，並保留後續查證、追蹤或尋求專業協助的空間。</p>
+      </div>
+
+      <div class="product-grid">
+        <article class="product-card">
+          <div class="product-art dark" aria-hidden="true">
+            <div class="mini-browser">
+              <div class="news-line long"></div>
+              <div class="news-line medium"></div>
+              <div class="news-line short"></div>
+              <span class="mini-tag">85% 標註：標題殺人</span>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-label">公共討論與查證</span>
+            <h3>TruthShield 真相護盾</h3>
+            <p>讓每一次閱讀都能補上一層社群證據。TruthShield 透過 Chrome 插件、互動示範、新聞搜尋與公開治理，把群眾標籤、證據、澄清與信用權重放回新聞現場。</p>
+            <ul class="feature-list">
+              <li>72 小時黃金查證期，定案後保留快照。</li>
+              <li>負面標籤需要附上來源或說明，降低情緒灌票。</li>
+              <li>不是刪除或封鎖內容，而是把可追溯的脈絡放在旁邊。</li>
+            </ul>
+            <div class="card-actions">
+              <a class="button primary" href="https://truth-shield.otus.tw/">前往 TruthShield</a>
+              <a class="button secondary" href="https://truth-shield.otus.tw/demo-news">看互動示範</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="product-card">
+          <div class="product-art light" aria-hidden="true">
+            <div class="mini-letter">
+              <div class="sheet-title">存證信函草稿</div>
+              <div class="doc-line" style="width: 90%"></div>
+              <div class="doc-line" style="width: 72%"></div>
+              <div class="doc-line" style="width: 84%"></div>
+            </div>
+          </div>
+          <div class="product-content">
+            <span class="product-label">日常權益與文件整理</span>
+            <h3>Legal Letter 存證信函產生器</h3>
+            <p>協助使用者先把寄件人、收件人、事實與訴求整理成可列印 PDF。工具免登入即可使用，正式寄送仍由使用者自行列印並至郵局辦理。</p>
+            <ul class="feature-list">
+              <li>把地址、內容與格式整理成清楚的 PDF 文件。</li>
+              <li>提供範例、FAQ、使用說明與法律免責聲明。</li>
+              <li>需要進一步協助時，可銜接律師名錄與配對資訊。</li>
+            </ul>
+            <div class="card-actions">
+              <a class="button primary" href="https://legal-letter.otus.tw/">前往 Legal Letter</a>
+              <a class="button secondary" href="https://legal-letter.otus.tw/examples">查看範例</a>
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section id="principles" class="section" aria-labelledby="principles-title">
+      <div class="section-heading">
+        <p class="eyebrow">How we work</p>
+        <h2 id="principles-title">我們做工具時在意三件事。</h2>
+      </div>
+      <div class="principles">
+        <article class="principle">
+          <h3>先降低第一步門檻</h3>
+          <p>重要流程常卡在不知道如何開始。我們把第一個可完成的動作做清楚，再讓使用者逐步深入。</p>
+        </article>
+        <article class="principle">
+          <h3>保留透明與可追溯</h3>
+          <p>查證、證據、文件、規則與限制都應該能被檢查。工具不應要求使用者盲目相信平台。</p>
+        </article>
+        <article class="principle">
+          <h3>尊重專業邊界</h3>
+          <p>工具負責整理與提醒，不假裝取代法律、媒體或其他專業判斷；需要時應讓專業協助更容易被找到。</p>
+        </article>
+      </div>
+    </section>
+
+    <section id="contact" class="section" aria-labelledby="contact-title">
+      <div class="contact-band">
+        <div>
+          <h2 id="contact-title">想合作、試用或回饋產品？</h2>
+          <p>歡迎來信告訴我們你的使用情境。若是媒體、社群、法律服務或公共議題相關合作，也可以直接附上簡短需求。</p>
+        </div>
+        <a class="button" href="mailto:kyjita@gmail.com">kyjita@gmail.com</a>
+      </div>
+    </section>
   </main>
-  
+
   <footer>
-    <div class="footer-content">
-      <p>Otus — 為您打造智慧便捷的數位體驗</p>
-      <p class="copyright">&copy; 2025 Otus. All rights reserved.</p>
+    <div class="footer-inner">
+      <span>&copy; 2026 Otus. All rights reserved.</span>
+      <div class="footer-links">
+        <a href="https://truth-shield.otus.tw/">TruthShield</a>
+        <a href="https://legal-letter.otus.tw/">Legal Letter</a>
+      </div>
     </div>
   </footer>
 </body>
